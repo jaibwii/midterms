@@ -4,18 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import { MyserviceService } from './myservice.service';
+import { NewCmpComponent } from "./new-cmp/new-cmp.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule],  
+  imports: [RouterOutlet, CommonModule, NewCmpComponent],  
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
   title = 'ng-pipes-demo';
+  todaydate;
+  componentproperty;
+  constructor(private myservice: MyserviceService) { 
+    this.todaydate = this.myservice.showTodayDate();
+    this.componentproperty = this.myservice.serviceproperty;
+  }
+  
   presentDate = new Date();
   time$ = interval(1000).pipe(
     map(() => new Date())
@@ -37,4 +45,6 @@ export class AppComponent implements OnInit{
     age: 21,
     food: 'Kimchi Stew',
   };
+
+
 }
