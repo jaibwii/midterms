@@ -1,0 +1,38 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>FIRST NAME</th>
+      <th>LAST NAME</th>
+      <th>EMAIL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.id}}</td>
+      <td>{{employee.firstname}}</td>
+      <td>{{employee.lastname}}</td>
+      <td>{{employee.email}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>PRODUCTS LIST</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.productID}}</td>
+      <td>{{product.productName}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.p}}</td>
+    </tr>
+  </tbody>
+</table>
